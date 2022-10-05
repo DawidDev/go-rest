@@ -7,12 +7,10 @@ import styled from "styled-components";
 import userSearch  from '../images/user-research.png'
 
 const MainContainer = styled.div`
-  border: 1px solid red;
   margin-top: 2rem;
   display: flex;
 
   .incentive {
-    border: 1px solid blue;
     width: 50%;
     display: flex;
     align-content: center;
@@ -38,7 +36,6 @@ const MainContainer = styled.div`
 
     .box-action {
       margin-top: 2rem;
-      border: 1px solid red;
       width: 100%;
       display: flex;
       align-items: center;
@@ -73,7 +70,6 @@ const MainContainer = styled.div`
   .img-box {
     width: 50%;
     max-height: 500px;
-    border: 1px solid black;
 
     img {
       object-fit: cover;
@@ -83,6 +79,49 @@ const MainContainer = styled.div`
     }
   }
 
+  @media (max-width: 767px){
+    margin-top: 0;
+
+    .incentive {
+      width: 100%;
+      margin-top: 10rem;
+
+      h1 {
+        font-size: 2rem;
+        line-height: 2.75rem;
+      }
+      
+      p.information {
+        font-size: 1rem;
+        margin-top: 1.25rem;
+      }
+
+      .box-action {
+      margin-top: 1.25rem;
+
+      button {
+        padding: 0.5rem 1.25rem;
+        font-size: 1rem;
+      }
+    }
+    }
+
+
+    .img-box {
+      position: absolute;
+      width: 120%;
+      max-height: 300px;
+      right: 0;
+      transform: translateX(20%);
+      opacity: 0.35;
+      z-index: -1;
+
+      img {
+        width: auto;
+        max-height: 300px;
+      }
+    }
+  }
 `;
 
 // Komponent renderujący sekcję zachęcającą stron w aplikacji web

@@ -9,7 +9,6 @@ import logo from "../images/logo.png";
 
 // Stylowanie elementów komponentu
 const NavContainer = styled.nav`
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
@@ -17,7 +16,6 @@ const NavContainer = styled.nav`
   .logo-box {
     width: 400px;
     height: auto;
-    border: 1px solid blue;
 
     img {
       width: 100%;
@@ -30,7 +28,6 @@ const NavContainer = styled.nav`
     }
 
   nav {
-    border: 1px solid green;
     max-width: 50%;
     width: 100%;
     display: flex;
@@ -55,9 +52,9 @@ const NavContainer = styled.nav`
   }
 
   @media (max-width: 767px){
-
     .logo-box {
       width: 65%;
+      margin-left: 10px;
     }
 
     button {
