@@ -1,7 +1,20 @@
 /* Importowanie czcionki z biblioteki fontów Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* Ustawienie domyślnej czcionki dla całej q jeśli inna nie została ustawiona danemu elementowi */
-body {
-  font-family: 'Poppins', sans-serif;
+/* 'Wyzerowanie' domyślnych styli */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+
+body {
+  font-family: "Poppins", sans-serif; /* Ustawienie domyślnej czcionki dla całej q jeśli inna nie została ustawiona danemu elementowi */
+  max-width: 1366px;
+  margin: 0 auto;
+  overflow: auto;
+  position: relative;
+}
+
+/* media queries dodać margin poniżej 1200px (0 20px) */
