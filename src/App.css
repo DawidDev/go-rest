@@ -13,7 +13,7 @@ body {
   font-family: "Poppins", sans-serif; /* Ustawienie domyślnej czcionki dla całej q jeśli inna nie została ustawiona danemu elementowi */
   max-width: 1366px;
   margin: 0 auto;
-  overflow: auto;
+  overflow-x: hidden;
   position: relative;
   height: 1900px;
   z-index: 0;
