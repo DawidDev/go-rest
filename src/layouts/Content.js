@@ -3,6 +3,7 @@ import React from "react";
 // Import elementów z biblioteki React router dom do obsługi routingu na stronie
 import { Routes, Route } from "react-router-dom";
 
+// Import biblioteki styled-components do stylowania elementów
 import styled from "styled-components";
 
 // Import komponentów z zawartościami konkretnych podstron
@@ -18,7 +19,7 @@ const Content = () => {
   return (
     <MainContainer>
     <Routes>
-      <Route path="/" element={<Users />} /> 
+      <Route exact path="/" element={<Users />} /> 
       <Route path="/users" element={<Users />} />
       <Route path="/posts" element={<Posts />} />
       <Route path="/todos" element={<Todos />} />

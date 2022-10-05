@@ -60,7 +60,7 @@ const NavContainer = styled.nav`
     button {
       display: inline-block;
       z-index: 1;
-      position: fixed;
+      position: ${(props) => props.isOpenMenu ? "fixed" : "absolute"};
       right: 2rem;
       top: 2rem;
       height: 3rem;
