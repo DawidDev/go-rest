@@ -14,6 +14,7 @@ const Box = styled.div`
   box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 0.7);
   background-color: #fff;
   flex-wrap: wrap;
+  z-index: 0;
 
   .title {
     width: 70%;
@@ -34,7 +35,6 @@ const Box = styled.div`
   @media (max-width: 767px) {
     .title {
       width: 100%;
-      position: relative;
       padding-bottom: 0.5rem;
       margin-bottom: 0.5rem;
 
@@ -56,6 +56,7 @@ const Box = styled.div`
       text-align: center;
       font-size: 0.85rem;
       opacity: 0.5;
+      z-index: 0;
     }
   }
   @media (min-width: 768px) {

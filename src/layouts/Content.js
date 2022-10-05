@@ -12,7 +12,10 @@ import Posts from "../pages/Posts"
 import Todos from "../pages/Todos"
 
 const MainContainer = styled.div`
-  margin: 0 10px;
+  z-index: 0;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0 10px;
 `
 
 const Content = () => {

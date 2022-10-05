@@ -12,6 +12,8 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
+  max-width: 1366px;
+  margin: 0 auto;
 
   .logo-box {
     width: 400px;
@@ -59,12 +61,13 @@ const NavContainer = styled.nav`
 
     button {
       display: inline-block;
-      z-index: 1;
+
       position: ${(props) => props.isOpenMenu ? "fixed" : "absolute"};
       right: 2rem;
       top: 2rem;
       height: 3rem;
       width: 3rem;
+      z-index: 2;
     }
     nav {
       position: fixed;
@@ -77,6 +80,7 @@ const NavContainer = styled.nav`
       transition: 0.25s;
       align-content: center;
       flex-wrap: wrap;
+      z-index: 1;
 
       a {
           text-align: center;

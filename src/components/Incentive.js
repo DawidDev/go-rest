@@ -3,9 +3,6 @@ import React from 'react'
 // Import biblioteki styled-components do stylowania elementów
 import styled from "styled-components";
 
-// Import grafiki
-import userSearch  from '../images/user-research.png'
-
 const MainContainer = styled.div`
   margin-top: 2rem;
   display: flex;
@@ -112,13 +109,14 @@ const MainContainer = styled.div`
       width: 120%;
       max-height: 300px;
       right: 0;
-      transform: translateX(20%);
+      overflow-x: hidden;
       opacity: 0.35;
       z-index: -1;
 
       img {
         width: auto;
         max-height: 300px;
+        transform: translateX(20%);
       }
     }
   }
