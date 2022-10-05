@@ -57,6 +57,10 @@ const MainContainer = styled.div`
         font-size: 1.25rem;
         font-weight: 500;
         margin-right: 1.25rem;
+
+        :hover {
+          cursor: pointer;
+        }
       }
 
       p {
@@ -78,6 +82,7 @@ const MainContainer = styled.div`
       float: right;
     }
   }
+
 `;
 
 // Komponent renderujący sekcję zachęcającą stron w aplikacji web

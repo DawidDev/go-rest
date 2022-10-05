@@ -15,6 +15,6 @@ body {
   margin: 0 auto;
   overflow: auto;
   position: relative;
+  height: 1900px;
+  z-index: 0;
 }
-
-/* media queries dodać margin poniżej 1200px (0 20px) */
