@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Import biblioteki styled-components do stylowania elementów
 import styled from "styled-components";
@@ -102,7 +102,25 @@ const Todos = () => {
     },
   ];
 
-  const tasksList = tasksFromAPI.map(task => (
+  const [dataTasks, setDataTasks] = useState([])
+
+  useEffect(() => {
+    const url = `https://gorest.co.in/public/v2/todos?page=${1}`;
+    fetch(url)
+      .then((response) => {
+        if (response.status !== 200) {
+          throw Error("Błąd zapytania");
+        } else {// Pobieramy z headera listę wszystkich podstronnpm dla paginacji
+          return response.json(); // Dane konwertowane na obiekt JSON
+        }
+      })
+      .then((response) => setDataTasks(response))
+
+      // Przechwycenie błędu gdy promise (fetch) zostanie odrzucony
+      .catch((error) => console.log(error));
+  }, []);
+
+  const tasksList = dataTasks.map(task => (
     <TodosRecord key={task.id} task={task} />
   ))
 

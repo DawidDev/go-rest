@@ -9,7 +9,11 @@ export const globalStateApp = {
     
     // Właściwości (aktualna wybrana strona paginacji oraz funkcja ją obsługująca w komponencie Posts)
     postsActualPage: 1,
-    postsSetPage: () => {}
+    postsSetPage: () => {},
+
+    // Właściwości odpowiedzialne za utrzymanie stanu aktualnie wyrenderowanych postów
+    renderedPosts: [],
+    setRenderedPostsGlobal: () => {}
 };
 
 // Tworzymy kontekst i go eksportujemy

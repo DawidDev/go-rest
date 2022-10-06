@@ -20,8 +20,11 @@ function App() {
   const usersSetPage = (value) => setUsersActualPage(value)
   const postsSetPage = (value) => setPostsActualPage(value)
 
+  const [renderedPosts, setRenderedPosts] = useState([])
+  const setRenderedPostsGlobal = (value) => setRenderedPosts(value)
+
   return (
-    <AppContext.Provider value={{ usersActualPage, usersSetPage, postsActualPage, postsSetPage}}>
+    <AppContext.Provider value={{ usersActualPage, usersSetPage, postsActualPage, postsSetPage, renderedPosts, setRenderedPostsGlobal}}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Navigation />
         <Content />
