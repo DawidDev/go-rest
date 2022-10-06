@@ -22,7 +22,7 @@ function App() {
 
   return (
     <AppContext.Provider value={{ usersActualPage, usersSetPage, postsActualPage, postsSetPage}}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Navigation />
         <Content />
         <Footer />
