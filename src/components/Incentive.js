@@ -123,14 +123,14 @@ const MainContainer = styled.div`
 `;
 
 // Komponent renderujący sekcję zachęcającą stron w aplikacji web
-const Inventive = ({infoAboutPage}) => {
+const Inventive = ({infoAboutPage, btnFunction}) => {
     return (
         <MainContainer>
         <div className='incentive'>
             <h1>{infoAboutPage.headerTitle}</h1>
             <p className='information'>{infoAboutPage.additionalInfo}<span>GoREST</span> api</p>
             <div className='box-action'>
-                {infoAboutPage.btnText ? <button>{infoAboutPage.btnText}</button> : null}
+                {infoAboutPage.btnText ? <button onClick={btnFunction}>{infoAboutPage.btnText}</button> : null}
                 <p>{infoAboutPage.btnAdditionalInfo}</p>
             </div>
         </div>
