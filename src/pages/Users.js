@@ -8,6 +8,7 @@ import Inventive from "../components/Incentive";
 import UserRecord from "../components/UserRecord";
 import UserRecordTitle from "../components/UserRecordTitle";
 import Pagination from "../components/Pagination";
+import FormForUser from "../components/FormForUser";
 
 // Importowanie kontekstu do obsługi globalnego stanu aplikacji
 import { AppContext } from "../context/appContext";
@@ -26,15 +27,21 @@ const Users = () => {
     image: userSearch,
   };
 
-  const incentiveBtnFnk = () => console.log('user function')
+  const [visibleForm, setVisibleForm] = useState(false)
+  const handleVisibleForm = () => setVisibleForm(prevValue => !prevValue)
 
-  const [totalPages, setTotalPages] = useState(1); // Stan dla totalnej liczby stron w dla paginacji
+  // Zmienna logiczna służąca tylko do wykonania ponownie useEffect, fetch po dodaniu posta aby wyświetlić nowy post na liście
+  const [refreshPage, setRefreshPage] = useState(false)
+  const handleRefreshPage = () => setRefreshPage(prevValue => !prevValue)
+
   const [dataUsers, setDataUsers] = useState([]); // Dane o użytkownikach, które zostaną przypisane w fetch
 
-  const { usersActualPage, usersSetPage } = useContext(AppContext) // Stan dla aktualnie wybranej strony (paginacja) oraz funkcja obsługująca jego zmianę pobrane z kontekstu aplikacji (globalnego stanu).
+  const { usersActualPage, usersSetPage, renderedUsers, setRenderedUsersGlobal } = useContext(AppContext) // Stan dla aktualnie wybranej strony (paginacja) oraz funkcja obsługująca jego zmianę pobrane z kontekstu aplikacji (globalnego stanu).
 
+  const [totalPages, setTotalPages] = useState(1); // Stan dla totalnej liczby stron w dla paginacji
+  
   // Wyświetlanie komponentów UserRecord (generowanie listy tych komponentów) na podstawie pobranych danych 
-  const usersList = dataUsers.map((user) => (
+  const usersList = renderedUsers.map((user) => (
     <UserRecord key={user.id} user={user} />
   ));
 
@@ -42,7 +49,14 @@ const Users = () => {
   // wartości stanu numberPage (zawarte tablica zależności) 
   useEffect(() => {
     const url = `https://gorest.co.in/public/v2/users?page=${usersActualPage}`;
-    fetch(url)
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer 16e9cc5d10323cf49d5aa6384ec6317bfeeb0582063b2173cabbb09711b4d73f',
+      },
+    })
       .then((response) => {
         if (response.status !== 200) {
           throw Error("Błąd zapytania");
@@ -51,11 +65,13 @@ const Users = () => {
           return response.json(); // Dane konwertowane na obiekt JSON
         }
       })
-      .then((response) => setDataUsers(response))
+      .then((response) => {
+        setRenderedUsersGlobal(response)
+      })
 
       // Przechwycenie błędu gdy promise (fetch) zostanie odrzucony
       .catch((error) => console.log(error));
-  }, [usersActualPage]);
+  }, [usersActualPage, refreshPage]);
 
   const positiveResult = (
     <>
@@ -65,14 +81,16 @@ const Users = () => {
   )
 
   const loadingDisplay = <p>Loading...</p>
-  const renderDecision = dataUsers.length > 0 ? positiveResult : loadingDisplay;
+  const renderUsersDecision = renderedUsers.length > 0 ? positiveResult : loadingDisplay;
+  const displayForm = visibleForm ? <FormForUser handleReloadData={handleRefreshPage} /> : null;
+
 
   return (
     <>
-      <Inventive infoAboutPage={infoAboutThisPage} btnFunction={incentiveBtnFnk} />
+      <Inventive infoAboutPage={infoAboutThisPage} btnFunction={handleVisibleForm} />
+      {displayForm}
       <UserRecordTitle />
-      {renderDecision}
-      
+      {renderUsersDecision}
     </>
   );
 };

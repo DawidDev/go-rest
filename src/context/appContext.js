@@ -13,7 +13,11 @@ export const globalStateApp = {
 
     // Właściwości odpowiedzialne za utrzymanie stanu aktualnie wyrenderowanych postów
     renderedPosts: [],
-    setRenderedPostsGlobal: () => {}
+    setRenderedPostsGlobal: () => {},
+
+    // Właściwości odpowiedzialne za utrzymanie stanu aktualnie wyrenderowanych użytkowników
+    renderedUsers: [],
+    setRenderedUsersGlobal: () => {}
 };
 
 // Tworzymy kontekst i go eksportujemy

@@ -20,11 +20,15 @@ function App() {
   const usersSetPage = (value) => setUsersActualPage(value)
   const postsSetPage = (value) => setPostsActualPage(value)
 
+  // Stan przypisany do kontekstu aplikacji i jego obsługa odpowiedzialne za utrzymywanie stanu nt wyrenderowanych postów 
   const [renderedPosts, setRenderedPosts] = useState([])
   const setRenderedPostsGlobal = (value) => setRenderedPosts(value)
+  // Stan przypisany do kontekstu aplikacji i jego obsługa odpowiedzialne za utrzymywanie stanu nt wyrenderowanych użytkowników 
+  const [renderedUsers, setRenderedUsers] = useState([])
+  const setRenderedUsersGlobal = (value) => setRenderedUsers(value)
 
   return (
-    <AppContext.Provider value={{ usersActualPage, usersSetPage, postsActualPage, postsSetPage, renderedPosts, setRenderedPostsGlobal}}>
+    <AppContext.Provider value={{ usersActualPage, usersSetPage, postsActualPage, postsSetPage, renderedPosts, setRenderedPostsGlobal, renderedUsers, setRenderedUsersGlobal}}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Navigation />
         <Content />
