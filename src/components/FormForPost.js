@@ -48,8 +48,12 @@ const Form = styled.div`
     margin-right: 1.25rem;
     float: right;
     margin: 1rem 0;
+    transition: 0.45s;
+  }
 
-    :hover {
+  @media (min-width: 768px){
+    button:hover {
+      opacity: 0.85;
       cursor: pointer;
     }
   }
@@ -82,10 +86,16 @@ const FormForPost = ({handleReloadData}) => {
     })
       .then((response) => response.json())
       .then((res) => {
-        console.log(res)
-        setStatus('ready') // Ustawiam status realizacji dodawania posta na pozytywny
-        handleReloadData() // Wywołuje funkcję w pozytywnym scenariuszu, która po swojej zmianie wymusi przeładowanie strony z postami
-      })
+        // API zwraca nowo dodany post w postaci obiektu. Jeśli zwróci te same dane które wysłaliśmy uznajemy to za sukces i odświeżamy komponent listy aby zobaczyć nowo dodany post.
+        const {title, body} = res
+        if(titlePost === title && contentPost === body){
+          setStatus('ready') // Ustawiam status realizacji dodawania posta na pozytywny
+          handleReloadData() // Wywołuje funkcję w pozytywnym scenariuszu, która po swojej zmianie wymusi przeładowanie strony z postami  
+        } else {
+          setStatus('error') // Ustawiam status realizacji dodawania posta na negatywny
+        }
+
+       })
 
       .catch((error) => {
         console.log(error)

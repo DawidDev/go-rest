@@ -14,6 +14,7 @@ const MainContainer = styled.div`
     flex-wrap: wrap;
     color: #222222;
     font-weight: 400;
+    margin-bottom: 1rem;
 
     h1 {
       font-size: 3rem;
@@ -51,10 +52,7 @@ const MainContainer = styled.div`
         font-size: 1.25rem;
         font-weight: 500;
         margin-right: 1.25rem;
-
-        :hover {
-          cursor: pointer;
-        }
+        transition: 0.45s;
       }
 
       p {
@@ -118,6 +116,13 @@ const MainContainer = styled.div`
         max-height: 300px;
         transform: translateX(20%);
       }
+    }
+  }
+
+  @media (min-width: 768px){
+    .box-action button:hover {
+      cursor: pointer;
+      opacity: 0.85;
     }
   }
 `;

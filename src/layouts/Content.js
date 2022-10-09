@@ -22,7 +22,7 @@ const Content = () => {
   return (
     <MainContainer>
     <Routes>
-      <Route exact path="/" element={<Users />} /> 
+      <Route path="/" element={<Users />} /> 
       <Route path="/users" element={<Users />} />
       <Route path="/posts" element={<Posts />} />
       <Route path="/todos" element={<Todos />} />

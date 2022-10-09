@@ -34,8 +34,6 @@ const Users = () => {
   const [refreshPage, setRefreshPage] = useState(false)
   const handleRefreshPage = () => setRefreshPage(prevValue => !prevValue)
 
-  const [dataUsers, setDataUsers] = useState([]); // Dane o użytkownikach, które zostaną przypisane w fetch
-
   const { usersActualPage, usersSetPage, renderedUsers, setRenderedUsersGlobal } = useContext(AppContext) // Stan dla aktualnie wybranej strony (paginacja) oraz funkcja obsługująca jego zmianę pobrane z kontekstu aplikacji (globalnego stanu).
 
   const [totalPages, setTotalPages] = useState(1); // Stan dla totalnej liczby stron w dla paginacji

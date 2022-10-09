@@ -46,7 +46,7 @@ const Box = styled.div`
         font-size: 0.8rem;
     }
     .name { 
-        width: 60%;
+        width: 70%;
         order: 2;
         font-weight: 400;
     }
@@ -63,7 +63,7 @@ const Box = styled.div`
         opacity: ${(props) => (props.displayBig ? "1" : "0")};
     }
     .status { 
-        width: 20%;
+        width: 10%;
         order: 3;
         font-size: 0.8rem;
     }

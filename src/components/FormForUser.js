@@ -62,12 +62,19 @@ const Form = styled.div`
         margin-right: 1.25rem;
         float: right;
         margin: 1rem 0;
-
-        :hover {
-          cursor: pointer;
-        }
+        transition: 0.45s;
       }
     }
+  }
+
+  @media (min-width: 768px){
+    .box form button:hover {
+          cursor: pointer;
+          opacity: 0.85;
+        }
+      input, select {
+        cursor: pointer;
+      }
   }
 `;
 
@@ -109,9 +116,19 @@ const FormForUser = ({ handleReloadData }) => {
     })
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
-        setStatus("ready"); // Ustawiam status realizacji dodawania posta na pozytywny
-        handleReloadData(); // Wywołuje funkcję w pozytywnym scenariuszu, która po swojej zmianie wymusi przeładowanie strony z postami
+        // Api zwraca nowo dodanego użytkownika w postaci obiektu. Jeśli zwróci te same dane które wysłaliśmy to uznajemy za sukces i odświeżamy komponent aby został nowy użytkownik wyświetlony na liście.
+        const { name, email, gender, status } = res;
+        if (
+          name === nameUser &&
+          email === emailUser &&
+          gender === genderUser &&
+          status === statusUser
+        ) {
+          setStatus("ready"); // Ustawiam status realizacji dodawania posta na pozytywny
+          handleReloadData(); // Wywołuje funkcję w pozytywnym scenariuszu, która po swojej zmianie wymusi przeładowanie strony z postami
+        } else {
+          setStatus("error"); // Ustawiam status realizacji dodawania posta na negatywny
+        }
       })
 
       .catch((error) => {
@@ -119,8 +136,6 @@ const FormForUser = ({ handleReloadData }) => {
         setStatus("error"); // Ustawiam status realizacji dodawania posta na negatywny
       });
   };
-
-  console.log(statusUser, genderUser)
 
   const form = (
     <form onSubmit={POST_data}>

@@ -130,7 +130,7 @@ display: none;
       width: ${(props) => (props.open ? "0" : "100%")};
       opacity: ${(props) => (props.open ? "0" : "1")};
       margin: 0 auto;
-      margin-bottom: 0.60rem;
+      margin-bottom: 0.80rem;
     }
 
     .line_1 {
