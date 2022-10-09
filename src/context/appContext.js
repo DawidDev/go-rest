@@ -17,7 +17,10 @@ export const globalStateApp = {
 
     // Właściwości odpowiedzialne za utrzymanie stanu aktualnie wyrenderowanych użytkowników
     renderedUsers: [],
-    setRenderedUsersGlobal: () => {}
+    setRenderedUsersGlobal: () => {},
+
+    renderedTodos: [],
+    setRenderedTodosGlobal: () => {}
 };
 
 // Tworzymy kontekst i go eksportujemy

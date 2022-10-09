@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Box = styled.div`
   border: 1px solid #dfe2eb;
-  margin: 0.75rem 0;
+  margin: 0.75rem 1rem;
   display: flex;
   align-items: center;
   padding: 1.15rem 1rem;
@@ -37,18 +37,6 @@ const Box = styled.div`
       width: 100%;
       padding-bottom: 0.5rem;
       margin-bottom: 0.5rem;
-
-      :after {
-        content: "";
-        width: 80%;
-        height: 1px;
-        background-color: #6c7aab;
-        opacity: 0.2;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
     }
     .date,
     .status {

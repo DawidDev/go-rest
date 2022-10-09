@@ -8,11 +8,28 @@ const PaginationBox = styled.div`
     justify-content: center;
     margin-top: 2rem;
 
-    button {
+    span, button {
         font-size: 1.15rem;
         background-color: transparent;
         border: none;
         margin: 0.5rem;
+        font-weight: 300;
+    }
+
+    button.page{
+        color: #38BB8A;
+        font-weight: 500;
+        
+    }
+
+    .page {
+        &--first, &--last {
+            color: #BCE7D6;
+        }
+        
+    }
+
+    button {
         cursor: pointer;
         transition: 0.15s;
         color: #222222;
@@ -53,12 +70,27 @@ const AdditionalInfo = styled.div`
 // zmieniającą stan komponentu rodzica
 const Pagination = ({actualPage, totalPages, handleNumberPage}) => {
 
-    // Renderowanie paginacji na podstawie warunków
+
+    const arrowLeft = <i class="bi bi-chevron-left"></i>
+    const arrowRight = <i class="bi bi-chevron-right"></i>
+
+    // Renderowanie paginacji na podstawie warunków 
     const numbersPages = (
         <>
-            {actualPage !== 1 ? <button onClick={() => handleNumberPage(actualPage - 1)}>{'<'}</button> : <button className='disabled'>{'<'}</button>}
-            {actualPage < 2 ? <button>1</button> : <button className='active'>{actualPage}</button>}
-            {actualPage !== totalPages ? <button onClick={() => handleNumberPage(actualPage + 1)}>{'>'}</button> : <button className='disabled'>{'>'}</button>}
+            
+            {actualPage !== 1 ? <button onClick={() => handleNumberPage(actualPage - 1)}>{arrowLeft}</button> : <button className='disabled'>{arrowLeft}</button>}
+            
+            {actualPage > 3 ?  <button className='page--first' onClick={() => handleNumberPage(1)}>1</button> : null}
+            {actualPage > 2 ?  <button onClick={() => handleNumberPage(actualPage - 2)}>{actualPage - 2}</button> : null}
+            {actualPage > 1 ?  <button onClick={() => handleNumberPage(actualPage - 1)}>{actualPage - 1}</button> : null}
+            
+            <button className='page'>{actualPage}</button>
+
+            {actualPage < totalPages ?  <button onClick={() => handleNumberPage(actualPage + 1)}>{actualPage + 1}</button> : null}
+            {actualPage < totalPages -2 ?  <button onClick={() => handleNumberPage(actualPage + 2)}>{actualPage +2}</button> : null}
+            {actualPage < totalPages - 3 ?  <button className='page--last' onClick={() => handleNumberPage(totalPages)}>{totalPages}</button> : null}
+            
+            {actualPage !== totalPages ? <button onClick={() => handleNumberPage(actualPage + 1)}>{arrowRight}</button> : <button className='disabled'>{arrowRight}</button>}
         </>
     )
     
