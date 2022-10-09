@@ -110,6 +110,7 @@ const FormForPost = ({handleReloadData}) => {
     <form onSubmit={POST_data}>
       <label>
         <input
+          required
           type="text"
           placeholder="title"
           value={titlePost}
@@ -118,6 +119,7 @@ const FormForPost = ({handleReloadData}) => {
       </label>
       <label>
         <textarea
+          required
           type="textarea"
           placeholder="post content"
           value={contentPost}
@@ -135,7 +137,7 @@ const FormForPost = ({handleReloadData}) => {
 
 
   return (
-    <Form>
+    <Form data-aos="fade-zoom-in">
       <div className="box">
         <h4>Adding new post</h4>
         <p>as user of number id 125</p>
@@ -146,3 +148,5 @@ const FormForPost = ({handleReloadData}) => {
 };
 
 export default FormForPost;
+
+// Aby dodać do bazy postów nowego posta należy użyć ID użytkownika, który już w bazie istnieje. Tutaj został użyty użytkownik o ID 125

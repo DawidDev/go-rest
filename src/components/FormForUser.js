@@ -139,17 +139,17 @@ const FormForUser = ({ handleReloadData }) => {
   const form = (
     <form onSubmit={POST_data}>
       <label>
-        <input type="text" placeholder="email" value={emailUser} onChange={handleEmailUser} ></input>
+        <input type="text" placeholder="email" value={emailUser} onChange={handleEmailUser} required></input>
       </label>
       <label>
-        <input type="text" placeholder="name" value={nameUser} onChange={handleNameUser} ></input>
+        <input type="text" placeholder="name" value={nameUser} onChange={handleNameUser} required></input>
       </label>
       <div className="group-select">
-      <select name="gender" value={genderUser} onChange={handleGenderUser} >
+      <select name="gender" value={genderUser} onChange={handleGenderUser} required>
         <option value="male">male</option>
         <option value="female">female</option>
       </select>
-      <select name="status" value={statusUser} onChange={handleStatusUser} >
+      <select name="status" value={statusUser} onChange={handleStatusUser} required>
         <option value="active">active</option>
         <option value="inactive">inactive</option>
       </select>
@@ -165,7 +165,7 @@ const FormForUser = ({ handleReloadData }) => {
     status === "" ? form : status === "ready" ? positiveInfo : negativeInfo;
 
   return (
-    <Form>
+    <Form data-aos="fade-zoom-in">
       <div className="box">
         <h4>Create a new user</h4>
         {result}

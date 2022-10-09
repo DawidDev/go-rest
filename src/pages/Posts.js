@@ -83,7 +83,7 @@ const Posts = () => {
   const displayForm = visibleForm ? <FormForPost handleReloadData={handleRefreshPage} /> : null; // Decyzja na temat widoczności formularza
 
   return (
-    <div>
+    <div data-aos="fade-zoom-in">
       <Inventive infoAboutPage={infoAboutThisPage} btnFunction={handleVisibleForm}/>
       {displayForm}
       {renderPostsDecision}

@@ -84,12 +84,12 @@ const Users = () => {
 
 
   return (
-    <>
+    <div data-aos="fade-zoom-in">
       <Inventive infoAboutPage={infoAboutThisPage} btnFunction={handleVisibleForm} />
       {displayForm}
       <UserRecordTitle />
       {renderUsersDecision}
-    </>
+    </div>
   );
 };
 

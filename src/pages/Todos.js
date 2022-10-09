@@ -134,7 +134,7 @@ const Todos = () => {
   };
 
   return (
-    <div>
+    <div data-aos="fade-zoom-in">
       <Inventive infoAboutPage={infoAboutThisPage} />
       <TodosRecordTitle />
       <DisplayedList>
