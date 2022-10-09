@@ -1,3 +1,5 @@
+// Komponent odpowiedzialny za renderowanie tytułów kolumn na liście użytkowników
+
 import React from 'react'
 
 // Import biblioteki styled-components do stylowania elementów

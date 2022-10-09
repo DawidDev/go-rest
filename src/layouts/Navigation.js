@@ -1,3 +1,5 @@
+// Komponent odpowiedzialny za obsługę menu
+
 import React, {useState} from "react";
 
 // Import elementów z biblioteki React router dom do obsługi routingu na stronie

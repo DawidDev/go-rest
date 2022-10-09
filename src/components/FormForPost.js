@@ -1,3 +1,5 @@
+// Komponent odpowiedzialny za formularz dodawania posta
+
 import React, { useState } from "react";
 
 // Import biblioteki styled-components do stylowania elementów

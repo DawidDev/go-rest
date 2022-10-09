@@ -1,8 +1,9 @@
+// Komponent odpowiedzialny za formularz dodawania użytkownika
+
 import React, { useState } from "react";
 
 // Import biblioteki styled-components do stylowania elementów
 import styled from "styled-components";
-
 
 const Form = styled.div`
   margin: 2rem 0;
@@ -77,8 +78,6 @@ const Form = styled.div`
       }
   }
 `;
-
-
 
 
 const FormForUser = ({ handleReloadData }) => {

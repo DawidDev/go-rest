@@ -1,3 +1,5 @@
+// Komponent odpowiedzialny za renderowanie pojedynczego rekordu na liście zadań
+
 import React from "react";
 
 // Import biblioteki styled-components do stylowania elementów

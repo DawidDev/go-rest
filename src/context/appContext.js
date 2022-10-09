@@ -1,3 +1,5 @@
+// Globalny stan aplikacji
+
 import { createContext } from "react";
 
 // Tworzymy obiekt który będzie naszym kontekstem dla aplikacji globalnym stanem. 
@@ -19,6 +21,7 @@ export const globalStateApp = {
     renderedUsers: [],
     setRenderedUsersGlobal: () => {},
 
+    // Właściwości odpowiedzialne za utrzymanie stanu aktualnie wyrenderowanych zadań
     renderedTodos: [],
     setRenderedTodosGlobal: () => {}
 };

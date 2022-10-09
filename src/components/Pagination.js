@@ -1,3 +1,5 @@
+// Komponent odpowiedzialny za paginację
+
 import React from 'react'
 
 // Import biblioteki styled-components do stylowania elementów

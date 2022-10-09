@@ -41,9 +41,6 @@ const CommentBox = styled.div`
 `;
 
 const SinglePostComments = ({ data, dataReady }) => {
-  console.log("W komentarzach");
-  console.log(data);
-
   const comments = data.map((item) => (
     <CommentBox key={item.id}>
       <p className="name">{item.name}</p>
@@ -58,9 +55,8 @@ const SinglePostComments = ({ data, dataReady }) => {
   // a) nie wiadomo czy są komentarze bo jeszcze oczekuję odpowiedzi - pokazuje ładowanie
   // b) są komentarze - wyświetlam je
   // c) nie ma komentarzy - zwracam tą informację użytkownikowi
-  const displayResult = dataReady ? (data.length > 0 ? comments : 'No comments') : 'Loading comments';
+  const displayResult = dataReady ? (data.length > 0 ? comments : 'No comments') : 'Loading comments..';
   
-  console.log(data);
   return <Container>{displayResult}</Container>;
 };
 

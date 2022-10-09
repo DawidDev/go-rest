@@ -1,3 +1,5 @@
+// Komponent odpowiedzialny za renderowanie zawartości 'podstron' react router dom
+
 import React from "react";
 
 // Import elementów z biblioteki React router dom do obsługi routingu na stronie

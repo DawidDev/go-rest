@@ -107,5 +107,3 @@ const SinglePost = ({ data }) => {
 };
 
 export default SinglePost;
-
-// https://gorest.co.in//public/v2/posts/1108/comments

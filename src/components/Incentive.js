@@ -1,3 +1,6 @@
+// Komponent odpowiedzialny za renderowanie sekcji początkowej na podstronach w zależności od wybranej. 
+// Ze względu na przewidywalną ilość podstron i podobmą kompozycję tych elementów polimorfizm wskazany tutaj.
+
 import React from 'react'
 
 // Import biblioteki styled-components do stylowania elementów
@@ -127,7 +130,6 @@ const MainContainer = styled.div`
   }
 `;
 
-// Komponent renderujący sekcję zachęcającą stron w aplikacji web
 const Inventive = ({infoAboutPage, btnFunction}) => {
     return (
         <MainContainer>

@@ -79,8 +79,8 @@ const Users = () => {
   )
 
   const loadingDisplay = <p>Loading...</p>
-  const renderUsersDecision = renderedUsers.length > 0 ? positiveResult : loadingDisplay;
-  const displayForm = visibleForm ? <FormForUser handleReloadData={handleRefreshPage} /> : null;
+  const renderUsersDecision = renderedUsers.length > 0 ? positiveResult : loadingDisplay; // Jeśli lista postów zawiera dane zostaną wyświetlone, jeśli nie wyświetli się informacja o ładowaniu danych
+  const displayForm = visibleForm ? <FormForUser handleReloadData={handleRefreshPage} /> : null; // Decyzja na temat widoczności formularza
 
 
   return (

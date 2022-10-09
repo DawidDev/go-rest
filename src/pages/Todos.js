@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+// Komponent odpowiedzialny za renderowanie listy zadań
+
+import React, {useEffect, useRef, useContext } from "react";
 
 // Import biblioteki styled-components do stylowania elementów
 import styled from "styled-components";
@@ -66,7 +68,7 @@ const Todos = () => {
       .catch((error) => console.log(error));
      }
 
-  }, []);
+  }, []); // pusta tablica zależności sprawia, że useEffect wykona się tylko raz niezależne od zmiany stanu komponentu ponieważ tablica zależności jest pusta.
 
   // ReactVirtualized: wartości niezbędne do automatycznego dostosowywania rozmiarów elementów listy. Właściwości niezbędne dla React Virtualized
   const cache = useRef(
@@ -101,7 +103,6 @@ const Todos = () => {
               renderedTodos[renderedTodos.length - 1].id !==
               response[response.length - 1].id
             ) {
-              console.log('Adding new tasks to list')
               setRenderedTodosGlobal((prevValue) => prevValue.concat(response));
             }
           }
@@ -111,8 +112,6 @@ const Todos = () => {
         .catch((error) => console.log(error))
     );
   };
-  console.log(renderedTodos.length)
-  console.log(renderedTodos)
 
   // ReactVirtualized: funkcja renderująca pojedynczy task na liście
   const rowRenderer = ({ key, index, style, parent }) => {

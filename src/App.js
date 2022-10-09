@@ -24,7 +24,7 @@ function App() {
   // Stan przypisany do kontekstu aplikacji i jego obsługa odpowiedzialne za utrzymywanie stanu nt wyrenderowanych użytkowników
   const [renderedUsers, setRenderedUsers] = useState([]);
   const setRenderedUsersGlobal = (value) => setRenderedUsers(value);
-
+  // Stan przypisany do kontekstu aplikacji i jego obsługa odpowiedzialna za utrzymywanie stanu nt wyrenderowanej listy zadań. Nie pobiera ponownie pobranych już wcześniej zadań
   const [renderedTodos, setRenderedTodos] = useState([]);
   const setRenderedTodosGlobal = (value) => setRenderedTodos(value);
 

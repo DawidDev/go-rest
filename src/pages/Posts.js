@@ -1,4 +1,4 @@
-// Komponent odpowiedzialny za renderowanie listy
+// Komponent odpowiedzialny za renderowanie listy postów
 
 import React, {useState, useContext, useEffect} from "react";
 
@@ -27,7 +27,7 @@ const Posts = () => {
     image: posts,
   };
 
-  
+  // Stan i jego obsługa odnoszący się do widoczności formularza 
   const [visibleForm, setVisibleForm] = useState(false)
   const handleVisibleForm = () => setVisibleForm(prevValue => !prevValue)
 
@@ -64,7 +64,7 @@ const Posts = () => {
 
       // Przechwycenie błędu gdy promise (fetch) zostanie odrzucony
       .catch((error) => console.log(error));
-  }, [postsActualPage, refreshPage]);
+  }, [postsActualPage, refreshPage]); // useEffect wykona się ponownie (pobierze dane) tylko po zamontowaniu kompoenntu pierwszy raz, po zmianie strony (paginacja), po odświeżeniu strony (wywoływane ręcznie) 
 
 
   const PostList = renderedPosts.map(post => (
@@ -79,8 +79,8 @@ const Posts = () => {
   )
 
   const loadingDisplay = <p>Loading...</p>
-  const renderPostsDecision = renderedPosts.length > 0 ? positiveResult : loadingDisplay;
-  const displayForm = visibleForm ? <FormForPost handleReloadData={handleRefreshPage} /> : null;
+  const renderPostsDecision = renderedPosts.length > 0 ? positiveResult : loadingDisplay; // Jeśli lista postów zawiera dane zostaną wyświetlone, jeśli nie wyświetli się informacja o ładowaniu danych
+  const displayForm = visibleForm ? <FormForPost handleReloadData={handleRefreshPage} /> : null; // Decyzja na temat widoczności formularza
 
   return (
     <div>
