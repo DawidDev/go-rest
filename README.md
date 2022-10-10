@@ -1,4 +1,4 @@
-## Application with exchange rates
+## GoREST
 
 **Demo: [GoREST](https://dawiddev.github.io/go-rest/)** <br/>
 The application uses the REST API provided by https://gorest.co.in. This project only represents some of the capabilities of this website.
